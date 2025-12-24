@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="NobleUI">
+    <meta name="keywords"
+        content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+    <title>@yield('title')</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- End fonts -->
+    <link rel="stylesheet" href="{{ asset('backend/vendors/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/vendors/jquery-tags-input/jquery.tagsinput.min.css') }}">
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('backend/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
+    <!-- End plugin css for this page -->
+    <!-- core:css -->
+    <link rel="stylesheet" href="{{ asset('backend/vendors/core/core.css') }}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('backend/vendors/flatpickr/flatpickr.min.css') }}">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('backend/fonts/feather-font/css/iconfont.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('backend/css/demo2/style.css') }}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{{ asset('backend/images/favicon.png') }}" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+</head>
+
+<body>
+    <div class="main-wrapper">
+        @include('backend.home.sidebar')
+        <div class="page-wrapper">
+            @include('backend.home.navbar')
+            @yield('main')
+            @include('backend.home.footer')
+        </div>
+    </div>
+
+
+
+    <!-- core:js -->
+    <script src="{{ asset('backend/vendors/core/core.js') }}"></script>
+    <!-- endinject -->
+
+    <!-- Plugin js for this page -->
+    <script src="{{ asset('backend/vendors/flatpickr/flatpickr.min.js') }}"></script>
+    <script src="{{ asset('backend/vendors/apexcharts/apexcharts.min.js') }}"></script>
+    <!-- End plugin js for this page -->
+
+    <!-- inject:js -->
+    <script src="{{ asset('backend/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('backend/js/template.js') }}"></script>
+    <!-- endinject -->
+
+    <!-- Custom js for this page -->
+    <script src="{{ asset('backend/js/dashboard-dark.js') }}"></script>
+    <!-- End custom js for this page -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ asset('backend/js/code/code.js') }}"></script>
+    <script src="{{ asset('backend/js/code/validate.min.js') }}"></script>
+
+    <!-- Start datatables -->
+    <script src="{{ asset('backend/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('backend/vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script>
+    <script src="{{ asset('backend/js/data-table.js') }}"></script>
+    <!-- End datatables -->
+
+
+    <!-- Input Tags -->
+    <script src="{{ asset('backend/vendors/inputmask/jquery.inputmask.min.js') }}"></script>
+    <script src="{{ asset('backend/vendors/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('backend/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+
+    <script src="{{ asset('backend/vendors/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
+
+    <script src="{{ asset('backend/js/inputmask.js') }}"></script>
+    <script src="{{ asset('backend/js/select2.js') }}"></script>
+    <script src="{{ asset('backend/js/typeahead.js') }}"></script>
+    <script src="{{ asset('backend/js/tags-input.js') }}"></script>
+
+    <!-- Input Tags -->
+
+    <!-- tinymce -->
+    <script src="{{ asset('backend/vendors/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('backend/js/tinymce.js') }}"></script>
+    <!-- tinymce -->
+
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+</body>
+
+</html>
