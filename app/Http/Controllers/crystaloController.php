@@ -276,7 +276,7 @@ class crystaloController extends Controller
         $product = Product::find($id);
 
         if (!$product) {
-            return redirect()->back()->with('error', 'Product not found');
+            return redirect()->back()->with('error', 'goods not found');
         }
 
         return view('backend.pages.edit_product', compact('product'));
