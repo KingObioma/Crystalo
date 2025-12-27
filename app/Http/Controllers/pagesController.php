@@ -35,7 +35,6 @@ class pagesController extends Controller
 
     public function projects(){
         $projects = project::limit(9)->get();
-        $projects = project::limit(9)->get();
         return view('frontend.pages.projects', compact('projects'));
     }
 
