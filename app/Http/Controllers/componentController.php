@@ -203,7 +203,6 @@ class componentController extends Controller
     public function updateTotals(Request $request){
         $validatedData = $request->validate([
             'state' => 'required|string',
-            'state' => 'required|string',
             'country' => 'required|string',
         ]);
 
